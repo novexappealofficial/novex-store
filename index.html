@@ -1,0 +1,2872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NOVEX — The 09 Shirt</title>
+
+<meta name="description" content="NOVEX 09 — Move Different.">
+
+<style>
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #080808;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 76px;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 5%;
+
+  background: rgba(8,8,8,.92);
+  backdrop-filter: blur(20px);
+
+  border-bottom: 1px solid #222;
+}
+
+.logo {
+  font-size: 27px;
+  font-weight: 900;
+  letter-spacing: 7px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 35px;
+  list-style: none;
+
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.nav-links a {
+  color: #aaa;
+  transition: .25s;
+}
+
+.nav-links a:hover {
+  color: white;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.search-button {
+  border: none;
+  background: none;
+  color: white;
+  font-size: 20px;
+}
+
+.cart-button {
+  border: 1px solid #444;
+  background: transparent;
+  color: white;
+
+  padding: 10px 15px;
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.cart-button:hover {
+  background: white;
+  color: black;
+}
+
+.cart-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 18px;
+  height: 18px;
+
+  margin-left: 5px;
+
+  border-radius: 50%;
+
+  background: white;
+  color: black;
+
+  font-size: 9px;
+}
+
+.mobile-menu {
+  display: none;
+  border: none;
+  background: none;
+  color: white;
+  font-size: 23px;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  min-height: 100vh;
+
+  padding: 150px 6% 90px;
+
+  display: flex;
+  align-items: flex-end;
+
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 75% 35%,
+      #333 0%,
+      #171717 25%,
+      #080808 65%
+    );
+}
+
+.hero::after {
+  content: "09";
+
+  position: absolute;
+
+  right: -2%;
+  bottom: -20%;
+
+  font-size: 500px;
+
+  font-weight: 900;
+
+  color: rgba(255,255,255,.025);
+
+  line-height: .8;
+
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.eyebrow {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #999;
+}
+
+.hero h1 {
+  margin: 20px 0;
+
+  font-size: clamp(75px, 13vw, 180px);
+
+  line-height: .78;
+
+  letter-spacing: -9px;
+
+  font-weight: 900;
+}
+
+.hero-description {
+  max-width: 500px;
+
+  color: #999;
+
+  font-size: 15px;
+
+  line-height: 1.7;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.primary-button,
+.secondary-button {
+  padding: 15px 25px;
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+
+  transition: .25s;
+}
+
+.primary-button {
+  background: white;
+  color: black;
+  border: 1px solid white;
+}
+
+.primary-button:hover {
+  background: transparent;
+  color: white;
+}
+
+.secondary-button {
+  background: transparent;
+  border: 1px solid #555;
+  color: white;
+}
+
+.secondary-button:hover {
+  border-color: white;
+}
+
+/* =========================
+   TICKER
+========================= */
+
+.ticker {
+  overflow: hidden;
+  white-space: nowrap;
+
+  padding: 17px 0;
+
+  border-top: 1px solid #222;
+  border-bottom: 1px solid #222;
+
+  background: #0d0d0d;
+}
+
+.ticker-track {
+  display: inline-block;
+
+  animation: ticker 20s linear infinite;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 4px;
+}
+
+.ticker span {
+  margin: 0 30px;
+}
+
+@keyframes ticker {
+
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+
+}
+
+/* =========================
+   COLLECTION
+========================= */
+
+.section {
+  padding: 100px 6%;
+}
+
+.section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  margin-bottom: 45px;
+}
+
+.section-title {
+  margin-top: 10px;
+
+  font-size: clamp(45px, 6vw, 75px);
+
+  letter-spacing: -4px;
+}
+
+/* =========================
+   PRODUCTS
+========================= */
+
+.products {
+  display: grid;
+
+  grid-template-columns:
+    repeat(5, 1fr);
+
+  gap: 14px;
+}
+
+.product-card {
+  background: #111;
+  overflow: hidden;
+
+  transition: .3s;
+
+  cursor: pointer;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-image {
+  position: relative;
+
+  aspect-ratio: 4 / 5;
+
+  overflow: hidden;
+
+  background: #ddd;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+
+  transition: .5s;
+}
+
+.product-card:hover .product-image img {
+  transform: scale(1.04);
+}
+
+.product-badge {
+  position: absolute;
+
+  top: 12px;
+  left: 12px;
+
+  z-index: 2;
+
+  padding: 7px 9px;
+
+  background: black;
+  color: white;
+
+  font-size: 8px;
+
+  font-weight: 900;
+
+  letter-spacing: 1px;
+}
+
+.product-info {
+  padding: 17px;
+}
+
+.product-name {
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.product-colour {
+  margin-top: 6px;
+
+  color: #777;
+
+  font-size: 9px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+}
+
+.product-price {
+  margin-top: 12px;
+
+  font-size: 12px;
+
+  color: #bbb;
+}
+
+/* =========================
+   PRODUCT DETAIL
+========================= */
+
+.product-section {
+  padding: 110px 6%;
+  border-top: 1px solid #222;
+}
+
+.product-detail {
+  display: grid;
+
+  grid-template-columns:
+    1.1fr .9fr;
+
+  gap: 70px;
+
+  align-items: center;
+}
+
+.main-product-image {
+  background: #ddd;
+
+  aspect-ratio: 1 / 1;
+
+  overflow: hidden;
+}
+
+.main-product-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.product-details h2 {
+  margin: 15px 0;
+
+  font-size: clamp(45px, 6vw, 80px);
+
+  line-height: .9;
+
+  letter-spacing: -4px;
+}
+
+.product-colour-name {
+  color: #999;
+
+  font-size: 11px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 2px;
+}
+
+.detail-price {
+  margin: 25px 0;
+
+  font-size: 18px;
+
+  color: #ccc;
+}
+
+.detail-line {
+  height: 1px;
+
+  background: #222;
+
+  margin: 25px 0;
+}
+
+/* =========================
+   OPTIONS
+========================= */
+
+.option-title {
+  margin-bottom: 12px;
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+.sizes {
+  display: flex;
+
+  gap: 7px;
+
+  flex-wrap: wrap;
+}
+
+.size-button {
+  width: 55px;
+  height: 45px;
+
+  border: 1px solid #444;
+
+  background: transparent;
+
+  color: white;
+
+  font-size: 10px;
+
+  font-weight: 800;
+}
+
+.size-button:hover,
+.size-button.active {
+  background: white;
+
+  color: black;
+
+  border-color: white;
+}
+
+/* =========================
+   COLOURS
+========================= */
+
+.colours {
+  display: flex;
+
+  gap: 12px;
+
+  margin-top: 15px;
+}
+
+.colour-button {
+  width: 28px;
+  height: 28px;
+
+  border-radius: 50%;
+
+  border: 2px solid #555;
+
+  transition: .2s;
+}
+
+.colour-button.active {
+  outline: 2px solid white;
+
+  outline-offset: 3px;
+}
+
+.black {
+  background: #080808;
+}
+
+.white {
+  background: #fff;
+}
+
+.blue {
+  background: #2857a8;
+}
+
+.pink {
+  background: #e889a7;
+}
+
+.grey {
+  background: #8b8b8b;
+}
+
+/* =========================
+   QUANTITY
+========================= */
+
+.quantity {
+  display: flex;
+
+  width: 125px;
+  height: 42px;
+
+  border: 1px solid #444;
+}
+
+.quantity button {
+  width: 40px;
+
+  border: none;
+
+  background: transparent;
+
+  color: white;
+
+  font-size: 15px;
+}
+
+.quantity span {
+  flex: 1;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 11px;
+}
+
+/* =========================
+   BUY BUTTONS
+========================= */
+
+.buy-buttons {
+  display: grid;
+
+  gap: 10px;
+
+  margin-top: 25px;
+}
+
+.add-to-bag,
+.buy-now {
+  width: 100%;
+
+  padding: 18px;
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+.add-to-bag {
+  background: white;
+
+  border: 1px solid white;
+
+  color: black;
+}
+
+.add-to-bag:hover {
+  background: transparent;
+
+  color: white;
+}
+
+.buy-now {
+  background: transparent;
+
+  border: 1px solid #555;
+
+  color: white;
+}
+
+.buy-now:hover {
+  border-color: white;
+}
+
+/* =========================
+   FEATURES
+========================= */
+
+.features {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  border-top: 1px solid #222;
+
+  border-bottom: 1px solid #222;
+}
+
+.feature {
+  padding: 35px 25px;
+
+  text-align: center;
+
+  border-right: 1px solid #222;
+}
+
+.feature:last-child {
+  border-right: none;
+}
+
+.feature-icon {
+  font-size: 22px;
+
+  margin-bottom: 15px;
+}
+
+.feature-title {
+  font-size: 10px;
+
+  font-weight: 900;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+}
+
+.feature-text {
+  margin-top: 7px;
+
+  color: #666;
+
+  font-size: 9px;
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about {
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 70px;
+
+  align-items: center;
+}
+
+.about-image {
+  aspect-ratio: 1;
+
+  background:
+    linear-gradient(
+      145deg,
+      #303030,
+      #111
+    );
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color: #555;
+
+  font-size: 12px;
+
+  letter-spacing: 3px;
+}
+
+.about h2 {
+  margin: 15px 0 25px;
+
+  font-size: clamp(45px, 6vw, 75px);
+
+  line-height: .9;
+
+  letter-spacing: -4px;
+}
+
+.about p {
+  max-width: 500px;
+
+  color: #888;
+
+  line-height: 1.8;
+
+  font-size: 14px;
+}
+
+/* =========================
+   NEWSLETTER
+========================= */
+
+.newsletter {
+  padding: 100px 6%;
+
+  text-align: center;
+
+  background: #111;
+
+  border-top: 1px solid #222;
+
+  border-bottom: 1px solid #222;
+}
+
+.newsletter h2 {
+  margin: 15px 0;
+
+  font-size: clamp(45px, 6vw, 75px);
+
+  letter-spacing: -4px;
+}
+
+.newsletter p {
+  margin-bottom: 30px;
+
+  color: #777;
+}
+
+.newsletter-form {
+  max-width: 500px;
+
+  margin: auto;
+
+  display: flex;
+}
+
+.newsletter-form input {
+  flex: 1;
+
+  padding: 16px;
+
+  background: #080808;
+
+  border: 1px solid #333;
+
+  color: white;
+
+  outline: none;
+}
+
+.newsletter-form button {
+  padding: 0 25px;
+
+  background: white;
+
+  color: black;
+
+  border: none;
+
+  font-size: 9px;
+
+  font-weight: 900;
+
+  letter-spacing: 1px;
+}
+
+/* =========================
+   CART
+========================= */
+
+.cart-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 2000;
+
+  background: rgba(0,0,0,.7);
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition: .3s;
+}
+
+.cart-overlay.open {
+  opacity: 1;
+
+  pointer-events: auto;
+}
+
+.cart {
+  position: absolute;
+
+  right: 0;
+  top: 0;
+
+  width: min(450px,100%);
+
+  height: 100%;
+
+  background: #111;
+
+  transform: translateX(100%);
+
+  transition: .35s;
+
+  display: flex;
+
+  flex-direction: column;
+}
+
+.cart-overlay.open .cart {
+  transform: translateX(0);
+}
+
+.cart-header {
+  padding: 25px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  border-bottom: 1px solid #222;
+}
+
+.cart-header h2 {
+  font-size: 18px;
+
+  letter-spacing: 2px;
+}
+
+.close-cart {
+  background: none;
+
+  border: none;
+
+  color: white;
+
+  font-size: 25px;
+}
+
+.cart-items {
+  flex: 1;
+
+  overflow-y: auto;
+
+  padding: 20px;
+}
+
+.empty-cart {
+  padding: 70px 20px;
+
+  text-align: center;
+
+  color: #555;
+
+  font-size: 12px;
+}
+
+.cart-item {
+  display: flex;
+
+  gap: 15px;
+
+  padding: 15px 0;
+
+  border-bottom: 1px solid #222;
+}
+
+.cart-image {
+  width: 80px;
+  height: 95px;
+
+  object-fit: cover;
+
+  background: #ddd;
+}
+
+.cart-item-info {
+  flex: 1;
+}
+
+.cart-item-name {
+  font-size: 12px;
+
+  font-weight: 900;
+
+  text-transform: uppercase;
+}
+
+.cart-item-details {
+  margin-top: 7px;
+
+  color: #777;
+
+  font-size: 10px;
+
+  line-height: 1.7;
+}
+
+.remove-button {
+  margin-top: 10px;
+
+  border: none;
+
+  background: none;
+
+  color: #666;
+
+  font-size: 9px;
+
+  text-transform: uppercase;
+}
+
+.cart-footer {
+  padding: 25px;
+
+  border-top: 1px solid #222;
+}
+
+.cart-total {
+  display: flex;
+
+  justify-content: space-between;
+
+  margin-bottom: 20px;
+
+  font-size: 14px;
+
+  font-weight: 900;
+}
+
+.checkout-button {
+  width: 100%;
+
+  padding: 17px;
+
+  background: white;
+
+  border: none;
+
+  color: black;
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+/* =========================
+   TOAST
+========================= */
+
+.toast {
+  position: fixed;
+
+  bottom: 30px;
+
+  left: 50%;
+
+  z-index: 3000;
+
+  transform: translate(-50%,100px);
+
+  padding: 14px 20px;
+
+  background: white;
+
+  color: black;
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  letter-spacing: 1px;
+
+  opacity: 0;
+
+  transition: .3s;
+}
+
+.toast.show {
+  opacity: 1;
+
+  transform: translate(-50%,0);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  padding: 60px 6% 25px;
+
+  border-top: 1px solid #222;
+}
+
+.footer-top {
+  display: grid;
+
+  grid-template-columns:
+    2fr 1fr 1fr 1fr;
+
+  gap: 40px;
+
+  padding-bottom: 50px;
+}
+
+.footer-logo {
+  font-size: 30px;
+
+  font-weight: 900;
+
+  letter-spacing: 7px;
+}
+
+.footer-description {
+  max-width: 280px;
+
+  margin-top: 20px;
+
+  color: #666;
+
+  line-height: 1.7;
+
+  font-size: 12px;
+}
+
+.footer-column h4 {
+  margin-bottom: 18px;
+
+  font-size: 10px;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+.footer-column a {
+  display: block;
+
+  margin-bottom: 11px;
+
+  color: #666;
+
+  font-size: 11px;
+}
+
+.footer-column a:hover {
+  color: white;
+}
+
+.footer-bottom {
+  display: flex;
+
+  justify-content: space-between;
+
+  padding-top: 25px;
+
+  border-top: 1px solid #222;
+
+  color: #555;
+
+  font-size: 9px;
+
+  letter-spacing: 1px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:1100px) {
+
+  .products {
+    grid-template-columns:
+      repeat(3,1fr);
+  }
+
+}
+
+@media(max-width:800px) {
+
+  .nav-links {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+
+  .hero h1 {
+    letter-spacing: -5px;
+  }
+
+  .products {
+    grid-template-columns:
+      repeat(2,1fr);
+  }
+
+  .product-detail {
+    grid-template-columns: 1fr;
+  }
+
+  .about {
+    grid-template-columns: 1fr;
+  }
+
+  .features {
+    grid-template-columns:
+      repeat(2,1fr);
+  }
+
+  .feature:nth-child(2) {
+    border-right: none;
+  }
+
+  .feature:nth-child(-n+2) {
+    border-bottom: 1px solid #222;
+  }
+
+}
+
+@media(max-width:550px) {
+
+  .navbar {
+    height: 68px;
+  }
+
+  .hero {
+    min-height: 90vh;
+
+    padding-top: 120px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+
+    max-width: 230px;
+  }
+
+  .section,
+  .product-section {
+    padding: 75px 5%;
+  }
+
+  .section-header {
+    display: block;
+  }
+
+  .products {
+    grid-template-columns:
+      1fr 1fr;
+
+    gap: 8px;
+  }
+
+  .product-info {
+    padding: 12px;
+  }
+
+  .product-name {
+    font-size: 10px;
+  }
+
+  .product-price {
+    font-size: 10px;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  .feature {
+    border-right: none;
+
+    border-bottom: 1px solid #222;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+
+    gap: 10px;
+  }
+
+  .newsletter-form button {
+    height: 48px;
+  }
+
+  .footer-top {
+    grid-template-columns:
+      1fr 1fr;
+  }
+
+  .footer-bottom {
+    display: block;
+
+    line-height: 2;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<header class="navbar">
+
+  <a href="#" class="logo">
+    NOVEX
+  </a>
+
+  <ul class="nav-links">
+
+    <li>
+      <a href="#collection">
+        Collection
+      </a>
+    </li>
+
+    <li>
+      <a href="#product">
+        09 Shirt
+      </a>
+    </li>
+
+    <li>
+      <a href="#about">
+        About
+      </a>
+    </li>
+
+    <li>
+      <a href="#contact">
+        Contact
+      </a>
+    </li>
+
+  </ul>
+
+  <div class="nav-actions">
+
+    <button
+      class="search-button"
+      onclick="scrollToCollection()"
+    >
+      ⌕
+    </button>
+
+    <button
+      class="cart-button"
+      onclick="openCart()"
+    >
+      BAG
+
+      <span
+        class="cart-count"
+        id="cartCount"
+      >
+        0
+      </span>
+
+    </button>
+
+    <button class="mobile-menu">
+      ☰
+    </button>
+
+  </div>
+
+</header>
+
+
+<main>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <div class="eyebrow">
+      NOVEX / COLLECTION 001
+    </div>
+
+    <h1>
+      MOVE<br>
+      DIFFERENT.
+    </h1>
+
+    <p class="hero-description">
+
+      The NOVEX 09 Shirt.
+
+      A clean everyday silhouette
+      built around the NOVEX identity.
+
+    </p>
+
+    <div class="hero-buttons">
+
+      <a
+        href="#collection"
+        class="primary-button"
+      >
+        Shop The 09
+      </a>
+
+      <a
+        href="#about"
+        class="secondary-button"
+      >
+        Discover NOVEX
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     TICKER
+========================= -->
+
+<div class="ticker">
+
+  <div class="ticker-track">
+
+    <span>NOVEX</span>
+    <span>09 SHIRT</span>
+    <span>MOVE DIFFERENT</span>
+
+    <span>NOVEX</span>
+    <span>09 SHIRT</span>
+    <span>MOVE DIFFERENT</span>
+
+    <span>NOVEX</span>
+    <span>09 SHIRT</span>
+    <span>MOVE DIFFERENT</span>
+
+    <span>NOVEX</span>
+    <span>09 SHIRT</span>
+    <span>MOVE DIFFERENT</span>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     COLLECTION
+========================= -->
+
+<section
+  class="section"
+  id="collection"
+>
+
+  <div class="section-header">
+
+    <div>
+
+      <div class="eyebrow">
+        Collection 001
+      </div>
+
+      <h2 class="section-title">
+        THE 09 SHIRT
+      </h2>
+
+    </div>
+
+    <div class="eyebrow">
+      $49.99 AUD
+    </div>
+
+  </div>
+
+
+  <div class="products">
+
+
+    <!-- BLACK -->
+
+    <article
+      class="product-card"
+      onclick="selectProduct('Black')"
+    >
+
+      <div class="product-image">
+
+        <div class="product-badge">
+          NOVEX 09
+        </div>
+
+        <img
+          src="images/novex-09.jpg"
+          alt="NOVEX 09 Shirt Black"
+        >
+
+      </div>
+
+      <div class="product-info">
+
+        <div class="product-name">
+          NOVEX 09 SHIRT
+        </div>
+
+        <div class="product-colour">
+          Black
+        </div>
+
+        <div class="product-price">
+          $49.99 AUD
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <!-- WHITE -->
+
+    <article
+      class="product-card"
+      onclick="selectProduct('White')"
+    >
+
+      <div class="product-image">
+
+        <div class="product-badge">
+          NOVEX 09
+        </div>
+
+        <img
+          src="images/novex-09.jpg"
+          alt="NOVEX 09 Shirt White"
+        >
+
+      </div>
+
+      <div class="product-info">
+
+        <div class="product-name">
+          NOVEX 09 SHIRT
+        </div>
+
+        <div class="product-colour">
+          White
+        </div>
+
+        <div class="product-price">
+          $49.99 AUD
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <!-- BLUE -->
+
+    <article
+      class="product-card"
+      onclick="selectProduct('Blue')"
+    >
+
+      <div class="product-image">
+
+        <div class="product-badge">
+          NOVEX 09
+        </div>
+
+        <img
+          src="images/novex-09.jpg"
+          alt="NOVEX 09 Shirt Blue"
+        >
+
+      </div>
+
+      <div class="product-info">
+
+        <div class="product-name">
+          NOVEX 09 SHIRT
+        </div>
+
+        <div class="product-colour">
+          Blue
+        </div>
+
+        <div class="product-price">
+          $49.99 AUD
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <!-- PINK -->
+
+    <article
+      class="product-card"
+      onclick="selectProduct('Pink')"
+    >
+
+      <div class="product-image">
+
+        <div class="product-badge">
+          NOVEX 09
+        </div>
+
+        <img
+          src="images/novex-09.jpg"
+          alt="NOVEX 09 Shirt Pink"
+        >
+
+      </div>
+
+      <div class="product-info">
+
+        <div class="product-name">
+          NOVEX 09 SHIRT
+        </div>
+
+        <div class="product-colour">
+          Pink
+        </div>
+
+        <div class="product-price">
+          $49.99 AUD
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <!-- GREY -->
+
+    <article
+      class="product-card"
+      onclick="selectProduct('Grey')"
+    >
+
+      <div class="product-image">
+
+        <div class="product-badge">
+          NOVEX 09
+        </div>
+
+        <img
+          src="images/novex-09.jpg"
+          alt="NOVEX 09 Shirt Grey"
+        >
+
+      </div>
+
+      <div class="product-info">
+
+        <div class="product-name">
+          NOVEX 09 SHIRT
+        </div>
+
+        <div class="product-colour">
+          Grey
+        </div>
+
+        <div class="product-price">
+          $49.99 AUD
+        </div>
+
+      </div>
+
+    </article>
+
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     PRODUCT DETAIL
+========================= -->
+
+<section
+  class="product-section"
+  id="product"
+>
+
+  <div class="product-detail">
+
+
+    <div class="main-product-image">
+
+      <img
+        id="mainProductImage"
+        src="images/novex-09.jpg"
+        alt="NOVEX 09 Shirt"
+      >
+
+    </div>
+
+
+    <div class="product-details">
+
+      <div class="eyebrow">
+        NOVEX / COLLECTION 001
+      </div>
+
+      <h2>
+        THE NOVEX<br>
+        09 SHIRT
+      </h2>
+
+      <div
+        class="product-colour-name"
+        id="selectedColour"
+      >
+        BLACK
+      </div>
+
+      <div class="detail-price">
+        $49.99 AUD
+      </div>
+
+      <div class="detail-line"></div>
+
+
+      <div class="option-title">
+        Select Size
+      </div>
+
+      <div class="sizes">
+
+        <button
+          class="size-button"
+          onclick="selectSize(this,'S')"
+        >
+          S
+        </button>
+
+        <button
+          class="size-button"
+          onclick="selectSize(this,'M')"
+        >
+          M
+        </button>
+
+        <button
+          class="size-button"
+          onclick="selectSize(this,'L')"
+        >
+          L
+        </button>
+
+        <button
+          class="size-button"
+          onclick="selectSize(this,'XL')"
+        >
+          XL
+        </button>
+
+        <button
+          class="size-button"
+          onclick="selectSize(this,'2XL')"
+        >
+          2XL
+        </button>
+
+      </div>
+
+
+      <div class="detail-line"></div>
+
+
+      <div class="option-title">
+        Colour
+      </div>
+
+      <div class="colours">
+
+        <button
+          class="colour-button black active"
+          onclick="selectColour('Black')"
+          aria-label="Black"
+        ></button>
+
+        <button
+          class="colour-button white"
+          onclick="selectColour('White')"
+          aria-label="White"
+        ></button>
+
+        <button
+          class="colour-button blue"
+          onclick="selectColour('Blue')"
+          aria-label="Blue"
+        ></button>
+
+        <button
+          class="colour-button pink"
+          onclick="selectColour('Pink')"
+          aria-label="Pink"
+        ></button>
+
+        <button
+          class="colour-button grey"
+          onclick="selectColour('Grey')"
+          aria-label="Grey"
+        ></button>
+
+      </div>
+
+
+      <div class="detail-line"></div>
+
+
+      <div class="option-title">
+        Quantity
+      </div>
+
+      <div class="quantity">
+
+        <button onclick="changeQuantity(-1)">
+          −
+        </button>
+
+        <span id="quantity">
+          1
+        </span>
+
+        <button onclick="changeQuantity(1)">
+          +
+        </button>
+
+      </div>
+
+
+      <div class="buy-buttons">
+
+        <button
+          class="add-to-bag"
+          onclick="addSelectedProduct()"
+        >
+          Add To Bag
+        </button>
+
+        <button
+          class="buy-now"
+          onclick="buyNow()"
+        >
+          Buy Now
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     FEATURES
+========================= -->
+
+<section class="features">
+
+  <div class="feature">
+
+    <div class="feature-icon">
+      ◉
+    </div>
+
+    <div class="feature-title">
+      Australian Brand
+    </div>
+
+    <div class="feature-text">
+      NOVEX / COLLECTION 001
+    </div>
+
+  </div>
+
+
+  <div class="feature">
+
+    <div class="feature-icon">
+      □
+    </div>
+
+    <div class="feature-title">
+      Secure Checkout
+    </div>
+
+    <div class="feature-text">
+      Powered by Stripe
+    </div>
+
+  </div>
+
+
+  <div class="feature">
+
+    <div class="feature-icon">
+      ◇
+    </div>
+
+    <div class="feature-title">
+      Premium Quality
+    </div>
+
+    <div class="feature-text">
+      Built To Last
+    </div>
+
+  </div>
+
+
+  <div class="feature">
+
+    <div class="feature-icon">
+      +
+    </div>
+
+    <div class="feature-title">
+      NOVEX Support
+    </div>
+
+    <div class="feature-text">
+      We're Here For You
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section
+  class="section about"
+  id="about"
+>
+
+  <div class="about-image">
+    NOVEX / 09
+  </div>
+
+  <div>
+
+    <div class="eyebrow">
+      About NOVEX
+    </div>
+
+    <h2>
+      MOVE<br>
+      DIFFERENT.
+    </h2>
+
+    <p>
+
+      NOVEX is a modern streetwear label
+      built around individuality, confidence
+      and movement.
+
+      <br><br>
+
+      The 09 Shirt is the first statement
+      from Collection 001.
+
+      <br><br>
+
+      This is only the beginning.
+
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     NEWSLETTER
+========================= -->
+
+<section
+  class="newsletter"
+  id="contact"
+>
+
+  <div class="eyebrow">
+    NOVEX / STAY CONNECTED
+  </div>
+
+  <h2>
+    STAY IN THE LOOP.
+  </h2>
+
+  <p>
+    Be first to know about new NOVEX drops.
+  </p>
+
+  <form
+    class="newsletter-form"
+    onsubmit="subscribe(event)"
+  >
+
+    <input
+      type="email"
+      placeholder="Your email address"
+      required
+    >
+
+    <button type="submit">
+      JOIN NOVEX
+    </button>
+
+  </form>
+
+</section>
+
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+  <div class="footer-top">
+
+    <div>
+
+      <div class="footer-logo">
+        NOVEX
+      </div>
+
+      <p class="footer-description">
+
+        Contemporary streetwear
+        for people who move different.
+
+      </p>
+
+    </div>
+
+
+    <div class="footer-column">
+
+      <h4>
+        Shop
+      </h4>
+
+      <a href="#collection">
+        Collection 001
+      </a>
+
+      <a href="#product">
+        The 09 Shirt
+      </a>
+
+    </div>
+
+
+    <div class="footer-column">
+
+      <h4>
+        Help
+      </h4>
+
+      <a href="#">
+        Shipping
+      </a>
+
+      <a href="#">
+        Returns
+      </a>
+
+      <a href="#">
+        Size Guide
+      </a>
+
+    </div>
+
+
+    <div class="footer-column">
+
+      <h4>
+        Follow
+      </h4>
+
+      <a href="#">
+        Instagram
+      </a>
+
+      <a href="#">
+        TikTok
+      </a>
+
+      <a href="#">
+        Facebook
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <div class="footer-bottom">
+
+    <div>
+      © 2026 NOVEX. ALL RIGHTS RESERVED.
+    </div>
+
+    <div>
+      COLLECTION 001 / THE 09 SHIRT
+    </div>
+
+  </div>
+
+</footer>
+
+
+<!-- =========================
+     CART
+========================= -->
+
+<div
+  class="cart-overlay"
+  id="cartOverlay"
+  onclick="closeCartOutside(event)"
+>
+
+  <aside class="cart">
+
+    <div class="cart-header">
+
+      <h2>
+        YOUR BAG
+      </h2>
+
+      <button
+        class="close-cart"
+        onclick="closeCart()"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <div
+      class="cart-items"
+      id="cartItems"
+    >
+
+      <div class="empty-cart">
+        Your bag is empty.
+      </div>
+
+    </div>
+
+
+    <div class="cart-footer">
+
+      <div class="cart-total">
+
+        <span>
+          TOTAL
+        </span>
+
+        <span id="cartTotal">
+          $0.00 AUD
+        </span>
+
+      </div>
+
+      <button
+        class="checkout-button"
+        onclick="checkout()"
+      >
+        PROCEED TO CHECKOUT
+      </button>
+
+    </div>
+
+  </aside>
+
+</div>
+
+
+<!-- =========================
+     TOAST
+========================= -->
+
+<div
+  class="toast"
+  id="toast"
+>
+  Added To Bag
+</div>
+
+
+<script>
+
+/* ==========================================
+   NOVEX 09 — STRIPE PAYMENT LINKS
+========================================== */
+
+const STRIPE_LINKS = {
+
+  Black:
+    "https://buy.stripe.com/28E00i90IbYF4HyeHnaIM04",
+
+  White:
+    "https://buy.stripe.com/fZueVc1yg0fXgqg9n3aIM03",
+
+  Blue:
+    "https://buy.stripe.com/5kQ00i90I6El4Hy2YFaIM02",
+
+  Pink:
+    "https://buy.stripe.com/dRm4gy7WE4wd5LC7eVaIM01",
+
+  Grey:
+    "https://buy.stripe.com/5kQ6oG7WEbYFb5W8iZaIM00"
+
+};
+
+
+/* ==========================================
+   PRODUCT
+========================================== */
+
+const PRICE = 49.99;
+
+let selectedColour = "Black";
+
+let selectedSize = null;
+
+let quantity = 1;
+
+let cart = [];
+
+
+/* ==========================================
+   SELECT PRODUCT
+========================================== */
+
+function selectProduct(colour) {
+
+  selectedColour = colour;
+
+  document
+    .getElementById("product")
+    .scrollIntoView({
+      behavior: "smooth"
+    });
+
+  selectColour(colour);
+
+}
+
+
+/* ==========================================
+   SELECT COLOUR
+========================================== */
+
+function selectColour(colour) {
+
+  selectedColour = colour;
+
+  document
+    .getElementById("selectedColour")
+    .textContent =
+      colour.toUpperCase();
+
+
+  document
+    .querySelectorAll(".colour-button")
+    .forEach(button => {
+
+      button.classList.remove(
+        "active"
+      );
+
+    });
+
+
+  const selectedButton =
+    document.querySelector(
+      ".colour-button." +
+      colour.toLowerCase()
+    );
+
+
+  if (selectedButton) {
+
+    selectedButton.classList.add(
+      "active"
+    );
+
+  }
+
+}
+
+
+/* ==========================================
+   SELECT SIZE
+========================================== */
+
+function selectSize(button, size) {
+
+  selectedSize = size;
+
+
+  document
+    .querySelectorAll(".size-button")
+    .forEach(item => {
+
+      item.classList.remove(
+        "active"
+      );
+
+    });
+
+
+  button.classList.add(
+    "active"
+  );
+
+}
+
+
+/* ==========================================
+   QUANTITY
+========================================== */
+
+function changeQuantity(amount) {
+
+  quantity += amount;
+
+
+  if (quantity < 1) {
+
+    quantity = 1;
+
+  }
+
+
+  if (quantity > 10) {
+
+    quantity = 10;
+
+  }
+
+
+  document
+    .getElementById("quantity")
+    .textContent =
+      quantity;
+
+}
+
+
+/* ==========================================
+   ADD TO BAG
+========================================== */
+
+function addSelectedProduct() {
+
+  if (!selectedSize) {
+
+    showToast(
+      "PLEASE SELECT A SIZE"
+    );
+
+    return;
+
+  }
+
+
+  const existing =
+    cart.find(item =>
+      item.colour === selectedColour &&
+      item.size === selectedSize
+    );
+
+
+  if (existing) {
+
+    existing.quantity += quantity;
+
+  } else {
+
+    cart.push({
+
+      name:
+        "NOVEX 09 SHIRT",
+
+      colour:
+        selectedColour,
+
+      size:
+        selectedSize,
+
+      quantity:
+        quantity,
+
+      price:
+        PRICE,
+
+      image:
+        "images/novex-09.jpg",
+
+      stripeLink:
+        STRIPE_LINKS[selectedColour]
+
+    });
+
+  }
+
+
+  updateCart();
+
+
+  showToast(
+    "ADDED " +
+    selectedColour.toUpperCase() +
+    " / " +
+    selectedSize
+  );
+
+
+  quantity = 1;
+
+  document
+    .getElementById("quantity")
+    .textContent = "1";
+
+}
+
+
+/* ==========================================
+   BUY NOW
+========================================== */
+
+function buyNow() {
+
+  if (!selectedSize) {
+
+    showToast(
+      "PLEASE SELECT A SIZE"
+    );
+
+    return;
+
+  }
+
+
+  const stripeLink =
+    STRIPE_LINKS[selectedColour];
+
+
+  if (!stripeLink) {
+
+    showToast(
+      "PAYMENT LINK NOT FOUND"
+    );
+
+    return;
+
+  }
+
+
+  /*
+    Redirect customer directly
+    to the Stripe checkout for
+    their selected colour.
+
+    The selected size is checked
+    on NOVEX first.
+  */
+
+  window.location.href =
+    stripeLink;
+
+}
+
+
+/* ==========================================
+   UPDATE CART
+========================================== */
+
+function updateCart() {
+
+  const cartItems =
+    document.getElementById(
+      "cartItems"
+    );
+
+  const cartCount =
+    document.getElementById(
+      "cartCount"
+    );
+
+  const cartTotal =
+    document.getElementById(
+      "cartTotal"
+    );
+
+
+  let totalItems = 0;
+
+  let totalPrice = 0;
+
+
+  cart.forEach(item => {
+
+    totalItems +=
+      item.quantity;
+
+    totalPrice +=
+      item.price *
+      item.quantity;
+
+  });
+
+
+  cartCount.textContent =
+    totalItems;
+
+
+  cartTotal.textContent =
+    "$" +
+    totalPrice.toFixed(2) +
+    " AUD";
+
+
+  if (cart.length === 0) {
+
+    cartItems.innerHTML = `
+
+      <div class="empty-cart">
+        Your bag is empty.
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  cartItems.innerHTML =
+    cart.map(
+      (item,index) => `
+
+        <div class="cart-item">
+
+          <img
+            class="cart-image"
+            src="${item.image}"
+            alt="${item.name}"
+          >
+
+          <div class="cart-item-info">
+
+            <div class="cart-item-name">
+
+              ${item.name}
+
+            </div>
+
+            <div class="cart-item-details">
+
+              Colour:
+              ${item.colour}
+
+              <br>
+
+              Size:
+              ${item.size}
+
+              <br>
+
+              Quantity:
+              ${item.quantity}
+
+              <br>
+
+              $${(
+                item.price *
+                item.quantity
+              ).toFixed(2)}
+              AUD
+
+            </div>
+
+            <button
+              class="remove-button"
+              onclick="removeItem(${index})"
+            >
+              Remove
+            </button>
+
+          </div>
+
+        </div>
+
+      `
+    ).join("");
+
+}
+
+
+/* ==========================================
+   REMOVE ITEM
+========================================== */
+
+function removeItem(index) {
+
+  cart.splice(index, 1);
+
+  updateCart();
+
+}
+
+
+/* ==========================================
+   CHECKOUT
+========================================== */
+
+function checkout() {
+
+  if (cart.length === 0) {
+
+    showToast(
+      "YOUR BAG IS EMPTY"
+    );
+
+    return;
+
+  }
+
+
+  /*
+    Stripe Payment Links are
+    colour-specific.
+
+    If the bag contains one item,
+    send the customer directly
+    to that colour's Stripe link.
+  */
+
+  if (cart.length === 1) {
+
+    const item = cart[0];
+
+    window.location.href =
+      item.stripeLink;
+
+    return;
+
+  }
+
+
+  /*
+    Multiple different colours
+    are currently not combined
+    into one Stripe checkout.
+
+    This prevents the customer
+    from accidentally paying the
+    wrong amount.
+
+    A Stripe Checkout backend can
+    later combine the whole bag.
+  */
+
+  showToast(
+    "FOR MULTIPLE ITEMS, PLEASE CHECK OUT ONE COLOUR AT A TIME"
+  );
+
+}
+
+
+/* ==========================================
+   CART OPEN
+========================================== */
+
+function openCart() {
+
+  document
+    .getElementById("cartOverlay")
+    .classList.add("open");
+
+  document.body.style.overflow =
+    "hidden";
+
+}
+
+
+/* ==========================================
+   CART CLOSE
+========================================== */
+
+function closeCart() {
+
+  document
+    .getElementById("cartOverlay")
+    .classList.remove("open");
+
+  document.body.style.overflow =
+    "";
+
+}
+
+
+/* ==========================================
+   CLOSE CART OUTSIDE
+========================================== */
+
+function closeCartOutside(event) {
+
+  if (
+    event.target.id ===
+    "cartOverlay"
+  ) {
+
+    closeCart();
+
+  }
+
+}
+
+
+/* ==========================================
+   SEARCH
+========================================== */
+
+function scrollToCollection() {
+
+  document
+    .getElementById("collection")
+    .scrollIntoView({
+      behavior: "smooth"
+    });
+
+}
+
+
+/* ==========================================
+   NEWSLETTER
+========================================== */
+
+function subscribe(event) {
+
+  event.preventDefault();
+
+  showToast(
+    "WELCOME TO NOVEX"
+  );
+
+  event.target.reset();
+
+}
+
+
+/* ==========================================
+   TOAST
+========================================== */
+
+let toastTimer;
+
+function showToast(message) {
+
+  const toast =
+    document.getElementById(
+      "toast"
+    );
+
+
+  toast.textContent =
+    message;
+
+
+  toast.classList.add(
+    "show"
+  );
+
+
+  clearTimeout(
+    toastTimer
+  );
+
+
+  toastTimer =
+    setTimeout(
+      () => {
+
+        toast.classList.remove(
+          "show"
+        );
+
+      },
+      2500
+    );
+
+}
+
+
+/* ==========================================
+   ESCAPE KEY
+========================================== */
+
+document.addEventListener(
+  "keydown",
+  event => {
+
+    if (
+      event.key === "Escape"
+    ) {
+
+      closeCart();
+
+    }
+
+  }
+);
+
+
+/* ==========================================
+   INITIALISE
+========================================== */
+
+updateCart();
+
+</script>
+
+</body>
+</html>
